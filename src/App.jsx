@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { getParadas } from "./services/paradas"
 import logo from "./assets/Bici.png"
-import { Heading, Box, Image, Flex, Text, Spacer,Tag } from '@chakra-ui/react'
+import { Heading, Box, Image, Flex, Text, Spacer, Button } from '@chakra-ui/react'
 
 
-export function App() {
+export default function App() {
     const [paradas, setParadas] = useState([])
 
     useEffect(() => {
@@ -34,9 +34,11 @@ export function App() {
                                 - Ciudad: {parada.location.city}, {parada.location.country}
                             </Text>
                             <Spacer />
-                            <Tag p={4} colorScheme="green">
-                                
-                            </Tag>
+                            <a href={`/paradaBici/${parada.id}`}>
+                                <Button p={8} colorScheme="green">
+                                    Consultar
+                                </Button>
+                            </a>
                         </Flex>
 
                     </Box>
